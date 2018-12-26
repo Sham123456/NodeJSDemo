@@ -1,18 +1,21 @@
-var express = require('express');
-var path = require('path');
-var chalk = require('chalk');
-var debug = require('debug')('app');
-var morgan = require('morgan');
+const express = require('express');
+const path = require('path');
+const chalk = require('chalk');
+const debug = require('debug')('app');
+const morgan = require('morgan');
 
-var app = express();
+const app = express();
 
 app.use(morgan('tiny'));
-app.use(express.static(path.join(__dirname, '/public/')))
+app.use(express.static(path.join(__dirname, '/public/')));
+app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
+app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
+app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
 
-app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, 'views/index.html'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views/index.html'));
 });
 
-app.listen(3000, function () {
-    debug(`Listening on port : ${chalk.green(3000)}`);
+app.listen(3000, () => {
+  debug(`Listening on port : ${chalk.green(3000)}`);
 });
