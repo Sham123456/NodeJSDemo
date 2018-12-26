@@ -22,6 +22,7 @@
     "bootstrap": "^4.2.1",
     "chalk": "^2.4.1",
     "debug": "^4.1.1",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
     "morgan": "^1.9.1"
@@ -37,6 +38,10 @@
     "ignore": [
       "node_modules/**/node_modules"
     ],
-    "delay": 2500
+    "delay": 2500,
+    "env": {
+      "PORT": 4000,
+      "NODE_ENV": "development"
+    }
   }
 }
