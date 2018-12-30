@@ -18,6 +18,10 @@ const books = [
 
 booksRouter.route('/').get((reg, res) => {
     res.render('index.ejs', {
+        nav: [
+            {title: 'Books', link: '/books'},
+            {title: 'Authors', link: '/authors'}
+        ],
         title: 'Library',
         books
     })
@@ -26,6 +30,10 @@ booksRouter.route('/').get((reg, res) => {
 booksRouter.route('/:id').get((req, res) => {
     const { id } = req.params;
     res.render('book.ejs', {
+        nav: [
+            {title: 'Books', link: '/books'},
+            {title: 'Authors', link: '/authors'}
+        ],
         title: 'Library',
         book : books[id]
     })
