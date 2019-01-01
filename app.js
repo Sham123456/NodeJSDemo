@@ -23,12 +23,12 @@ const bookRouter = require('./src/routes/bookRoutes')(nav);
 
 app.use('/books', bookRouter);
 
-// app.get('/', (req, res) => {
-//     res.render('index.ejs', {
-//         title: 'Library',
-//         books
-//     })
-// });
+app.get('/', (req, res) => {
+    res.render('index.ejs', {
+        title: 'Library',
+        nav
+    })
+});
 
 app.listen(port, () => {
   debug(`Listening on port : ${chalk.green(port)}`);
